@@ -1,7 +1,8 @@
 let myLibrary = [];
 let modal = document.getElementById("myModal");
 let span = document.getElementsByClassName("close")[0];
-
+let readStatusButton = document.getElementsByClassName("readStatus")
+readStatus = false;
 
 
 function Book(title, author, pages, read) {
@@ -44,14 +45,21 @@ function addBookToLibrary() {
     selectCard.appendChild(hr);
 }
 
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
 function hideModal() {
     modal.style.display = "none";
 }
 
+
+function changeReadStatus() {
+    if (readStatus == false) {
+        console.log(readStatus);
+        readStatus.setAttribute('style', 'background-color: red;');
+    }
+    else {
+        readStatus == true
+        readStatus.setAttribute('style', 'background-color: green;');
+    }
+}
 
 window.onclick = function (event) {
     if (event.target == modal) {

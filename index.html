@@ -18,7 +18,7 @@
 <div id="myModal" class="modal">
 
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" onclick="hideModal()">&times;</span>
         <h1>Add new book</h1>
         <form>
             <label for="title">Title: </label>
@@ -31,7 +31,7 @@
             <input type="number" name="pages" id="pages">
             <br>
             <label for="readStatus">Already read: </label>
-            <input type="radio" name="readStatus" id="readStatus">
+            <input type="button" name="readStatus" id="readStatus" onclick="changeReadStatus()">
             <br>
             <button type="button" onclick="addBookToLibrary()">Create book</button>
         </form>

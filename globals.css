@@ -18,7 +18,7 @@ body {
 }
 
 .modal-content {
-    display: fixed;
+    display: static;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -47,4 +47,9 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+
+#readStatus {
+    width: 180px
 }

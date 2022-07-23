@@ -3,11 +3,7 @@ body {
     color: black;
 }
 
-
-
-
-
-/* The Modal (background) */
+/* Modal (background) */
 .modal {
     display: none;
     position: fixed;
@@ -20,7 +16,6 @@ body {
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
-
 
 .modal-content {
     display: fixed;

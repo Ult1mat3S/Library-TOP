@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <button id="modal-button" onclick="addBookToLibrary()">NEW BOOK</button>
+    <button id="modal-button" onclick="createNewBook()">New book</button>
     <div id="container"></div>
 </body>
 
@@ -30,10 +30,10 @@
             <label for="pages"># of pages: </label>
             <input type="number" name="pages" id="pages">
             <br>
-            <label for="read">Already read: </label>
-            <input type="checkbox" name="read" id="read">
+            <label for="readStatus">Already read: </label>
+            <input type="radio" name="readStatus" id="readStatus">
             <br>
-            <button type="button" onclick="createNewBook()" onclick="hideModal()">Create book</button>
+            <button type="button" onclick="addBookToLibrary()">Create book</button>
         </form>
 
     </div>

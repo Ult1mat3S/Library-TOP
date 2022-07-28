@@ -4,7 +4,6 @@ let span = document.getElementsByClassName("close")[0];
 let readStatusButton = document.getElementsByClassName("readStatus")
 readStatus = false;
 
-
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -32,8 +31,10 @@ function addBookToLibrary() {
 
     const bookAuthor = document.createElement('p')
     const bookPages = document.createElement('p')
-    const bookRead = document.createElement('p')
+    const bookRead = document.createElement('button')
 
+
+    bookRead.classList.add('bookRead');
     bookAuthor.textContent = `Book author: ${author.value}`
     bookPages.textContent = `Book pages #: ${pages.value},`
     bookRead.textContent = `Already read? ${readStatus.value}`
@@ -49,70 +50,65 @@ function hideModal() {
     modal.style.display = "none";
 }
 
-
 function changeReadStatus() {
-    if (readStatus == false) {
-        console.log(readStatus);
-        readStatus.setAttribute('style', 'background-color: red;');
+    let readStatus = document.querySelector('#readStatus')
+    if (readStatus.classList.contains('red')) {
+        readStatus.classList.remove('red')
+        readStatus.classList.add('green')
+    } else {
+        readStatus.classList.remove('green')
+        readStatus.classList.add('red')
     }
-    else {
-        readStatus == true
-        readStatus.setAttribute('style', 'background-color: green;');
+
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-}
 
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+    function printBook() {
+        for (let i = 0; i < myLibrary.length; i++) {
+            const book = myLibrary[i];
+            // console.log(myLibrary)
+            const container = document.querySelector('#container');
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.setAttribute('style', 'background-color: grey;');
+            container.appendChild(card);
+            const selectCard = document.querySelector('.card');
 
-function printBook() {
-    for (let i = 0; i < myLibrary.length; i++) {
-        const book = myLibrary[i];
-        // console.log(myLibrary)
-        const container = document.querySelector('#container');
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.setAttribute('style', 'background-color: grey;');
-        container.appendChild(card);
-        const selectCard = document.querySelector('.card');
+            const h1 = document.createElement('h1');
+            h1.textContent = `${book}`
 
-        const h1 = document.createElement('h1');
-        h1.textContent = `${book}`
-
-        const hr = document.createElement('hr');
+            const hr = document.createElement('hr');
 
 
-        const bookDetails = document.createElement('p')
-        bookDetails.textContent = `Book author:
+            const bookDetails = document.createElement('p')
+            bookDetails.textContent = `Book author:
         Book pages #:
         Read/not read?`
 
-        selectCard.appendChild(h1);
+            selectCard.appendChild(h1);
 
-        selectCard.appendChild(bookDetails);
-        selectCard.appendChild(hr);
+            selectCard.appendChild(bookDetails);
+            selectCard.appendChild(hr);
+        }
     }
-}
 
-function getFormInput() {
-    let author = document.querySelector('#author').value;
-    console.log(author);
-    let title = document.querySelector('#title').value;
-    console.log(title);
-    let pages = document.querySelector('#pages').value;
-    console.log(pages);
-    let readStatus = document.querySelector('#readStatus').value;
-    console.log(readStatus);
-}
+    function getFormInput() {
+        let title = document.querySelector('#title').value;
+        console.log(title);
+        let author = document.querySelector('#author').value;
+        console.log(author);
+        let pages = document.querySelector('#pages').value;
+        console.log(pages);
+        let readStatus = document.querySelector('#readStatus').value;
+        console.log(readStatus);
+    }
 
-function createNewBook() {
-    modal.style.display = "block";
+    function createNewBook() {
+        modal.style.display = "block";
+    }
 
-}
-
-// const theHobbit = new Book('The Hobbit', 'by J.R.R. Tolkien', '295 pages', 'not read yet')
-// console.log(theHobbit.info());
-
-printBook()
+    printBook()

@@ -53,3 +53,11 @@ form {
 #readStatus {
     width: 180px
 }
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
